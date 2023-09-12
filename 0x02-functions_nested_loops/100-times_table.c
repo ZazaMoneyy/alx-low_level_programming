@@ -1,71 +1,61 @@
 #include "main.h"
 
-void print_row(int row, int n);
-void print_cell(int value);
+/**
+ * print_number - print a number with appropriate formatting
+ * @num: the number to print
+ */
+void print_number(int num)
+{
+	if (num < 10)
+{
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(num + '0');
+}
+	else if (num >= 10 && num < 100)
+{
+		_putchar(' ');
+		_putchar(' ');
+		_putchar((num / 10) + '0');
+		_putchar((num % 10) + '0');
+}
+	else
+{
+		_putchar(' ');
+		_putchar((num / 100) + '0');
+		_putchar(((num / 10) % 10) + '0');
+		_putchar((num % 10) + '0');
+}
+}
+
 /**
  * print_times_table - prints the n times table, starting with 0
  * @n: number of the times table
  */
 void print_times_table(int n)
 {
-if (n >= 0 && n <= 15)
-{
-	int i;
+	int i, j, k;
 
-	for (i = 0; i <= n; i++)
+	if (n >= 0 && n <= 15)
 {
-		print_row(i, n);
+		for (i = 0; i <= n; i++)
+{
+			for (j = 0; j <= n; j++)
+{
+				k = j * i;
+				if (j == 0)
+{
+					_putchar(k + '0');
+}
+				else
+{
+					_putchar(',');
+					_putchar(' ');
+					print_number(k);
 }
 }
+			_putchar('\n');
 }
-
-/**
- * print_row - prints a single row of the times table
- * @row: the row number
- * @n: the maximum value for the times table
- */
-void print_row(int row, int n)
-{
-int j;
-
-for (j = 0; j <= n; j++)
-{
-	int result = row * j;
-
-	print_cell(result);
-	if (j < n)
-{
-		_putchar(',');
-		_putchar(' ');
-}
-}
-
-_putchar('\n');
-
-}
-
-/**
- * print_cell - prints a cell of the times table
- * @value: the value to print
- */
-void print_cell(int value)
-{
-	if (value < 10)
-{
-		_putchar(' ');
-		_putchar(' ');
-		_putchar(value + '0');
-}
-	else if (value < 100)
-{
-		_putchar(' ');
-		_putchar((value / 10) + '0');
-		_putchar((value % 10) + '0');
-}
-	else
-{
-		_putchar((value / 100) + '0');
-		_putchar(((value / 10) % 10) + '0');
-		_putchar((value % 10) + '0');
 }
 }

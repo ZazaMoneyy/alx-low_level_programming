@@ -35,12 +35,17 @@ before2 = before % limit;
 
 for (i = 92; i < 99; ++i)
 {
-	printf(", %lu", new1 + (new2 / limit));
-	printf("%lu", new2 % limit);
+	unsigned long int temp1 = new1;
+	unsigned long int temp2 = new2;
+
 	new1 = new1 + before1;
-	before1 = new1 - before1;
+	before1 = temp1;
+
 	new2 = new2 + before2;
-	before2 = new2 - before2;
+	before2 = temp2;
+
+	printf(", %lu", new1 + (new2 / limit));
+	printf("%09lu", new2 % limit);
 }
 
 printf("\n");
