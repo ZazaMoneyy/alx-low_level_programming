@@ -6,45 +6,64 @@
  */
 void print_times_table(int n)
 {
-int i, j, k;
-
 if (n >= 0 && n <= 15)
 {
+	int i, j;
+
 	for (i = 0; i <= n; i++)
 {
-		for (j = 0; j <= n; j++)
+		print_row(i, n);
+}
+}
+}
+
+/**
+ * print_row - prints a single row of the times table
+ * @row: the row number
+ * @n: the maximum value for the times table
+ */
+void print_row(int row, int n)
 {
-			k = j * i;
-			if (j == 0)
+int j;
+
+for (j = 0; j <= n; j++)
 {
-				_putchar(k + '0');
-}
-			else if (k < 10 && j != 0)
-				{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(k + '0');
-}
-			else if (k >= 10 && k < 100)
+	int result = row * j;
+
+	print_cell(result);
+	if (j < n)
 {
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar((k / 10) + '0');
-				_putchar((k % 10) + '0');
+		_putchar(',');
+		_putchar(' ');
 }
-			else if (k >= 100)
+}
+
+_putchar('\n');
+
+}
+
+/**
+ * print_cell - prints a cell of the times table
+ * @value: the value to print
+ */
+void print_cell(int value)
 {
-				_putchar(',');
-				_putchar(' ');
-				_putchar((k / 100) + '0');
-				_putchar(((k / 10) % 10) + '0');
-				_putchar((k % 10) + '0');
+	if (value < 10)
+{
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(value + '0');
 }
+	else if (value < 100)
+{
+		_putchar(' ');
+		_putchar((value / 10) + '0');
+		_putchar((value % 10) + '0');
 }
-		_putchar('\n');
-}
+	else
+{
+		_putchar((value / 100) + '0');
+		_putchar(((value / 10) % 10) + '0');
+		_putchar((value % 10) + '0');
 }
 }
