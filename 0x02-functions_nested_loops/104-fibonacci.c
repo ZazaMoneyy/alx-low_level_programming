@@ -15,17 +15,17 @@ int main(void)
 {
 	unsigned long int i;
 	unsigned long int new1 = 1;
-	unsigned long int new2 = 1;
+	unsigned long int new2 = 2;
 	unsigned long int before1 = 0;
 	unsigned long int before2 = 1;
 	unsigned long int limit = 1000000000;
 	unsigned long int temp1, temp2;
 
-	printf("%lu", new1);
+	printf("%lu, %lu", new1, new2);
 
-	for (i = 1; i < 100; i++)
+	for (i = 2; i < 98; i++)
 {
-		printf(", %lu", new2);
+		printf(", %lu", new1 + new2);
 
 	/* Calculate the next Fibonacci number */
 		temp1 = new1;
