@@ -12,20 +12,18 @@
 int main(void)
 {
 	unsigned long int current = 1;
-	unsigned long int previous = 1;
+	unsigned long int previous = 2;
 	unsigned long int temp;
 	int count;
 
-	printf("%lu", current);
+	printf("%lu, %lu", current, previous);
 
-	for (count = 2; count <= 98; count++)
+	for (count = 3; count <= 98; count++)
 {
-		printf(", %lu", current);
-
-	/* Calculate the next Fibonacci number */
 		temp = current;
 		current += previous;
 		previous = temp;
+		printf(", %lu", current);
 }
 
 	printf("\n");
