@@ -14,7 +14,7 @@
 int main(void)
 {
 	unsigned long int i;
-	unsigned long int new1 = 0;
+	unsigned long int new1 = 1;
 	unsigned long int new2 = 1;
 	unsigned long int before1 = 0;
 	unsigned long int before2 = 1;
