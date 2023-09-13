@@ -13,41 +13,36 @@
  */
 int main(void)
 {
-unsigned long int i;
-unsigned long int new = 1;
-unsigned long int before = 2;
-unsigned long int limit = 1000000000;
-unsigned long int new1, new2, before1, before2;
+	unsigned long int i;
+	unsigned long int new1 = 0;
+	unsigned long int new2 = 1;
+	unsigned long int before1 = 0;
+	unsigned long int before2 = 1;
+	unsigned long int limit = 1000000000;
 
-printf("%lu", before);
+	printf("%lu", new1);
 
-for (i = 1; i < 91; i++)
+	for (i = 1; i < 100; i++)
 {
-	printf(", %lu", new);
-	new += before;
-	before = new - before;
+		printf(", %lu", new2);
+        
+        // Calculate the next Fibonacci number
+		unsigned long int temp1 = new1;
+		unsigned long int temp2 = new2;
+		new1 = new1 + before1;
+		before1 = temp1;
+
+        // Handle large numbers by splitting into two parts
+		new2 = new2 + before2;
+		before2 = temp2;
+
+		if (new2 >= limit)
+{
+			new2 -= limit;
+			new1 += 1;
+}
 }
 
-new1 = new / limit;
-new2 = new % limit;
-before1 = before / limit;
-before2 = before % limit;
-
-for (i = 92; i < 99; ++i)
-{
-	unsigned long int temp1 = new1;
-	unsigned long int temp2 = new2;
-
-	new1 = new1 + before1;
-	before1 = temp1;
-
-	new2 = new2 + before2;
-	before2 = temp2;
-
-	printf(", %lu", new1 + (new2 / limit));
-	printf("%09lu", new2 % limit);
-}
-
-printf("\n");
-return (0);
+	printf("\n");
+	return (0);
 }
