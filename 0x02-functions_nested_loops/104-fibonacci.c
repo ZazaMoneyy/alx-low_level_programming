@@ -25,14 +25,15 @@ int main(void)
 	for (i = 1; i < 100; i++)
 {
 		printf(", %lu", new2);
-        
-        // Calculate the next Fibonacci number
+
+	/* Calculate the next Fibonacci number */
 		unsigned long int temp1 = new1;
 		unsigned long int temp2 = new2;
+
 		new1 = new1 + before1;
 		before1 = temp1;
 
-        // Handle large numbers by splitting into two parts
+	/* Handle large numbers by splitting into two parts */
 		new2 = new2 + before2;
 		before2 = temp2;
 
