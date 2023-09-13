@@ -19,6 +19,7 @@ int main(void)
 	unsigned long int before1 = 0;
 	unsigned long int before2 = 1;
 	unsigned long int limit = 1000000000;
+	unsigned long int temp1, temp2;
 
 	printf("%lu", new1);
 
@@ -27,8 +28,8 @@ int main(void)
 		printf(", %lu", new2);
 
 	/* Calculate the next Fibonacci number */
-		unsigned long int temp1 = new1;
-		unsigned long int temp2 = new2;
+		temp1 = new1;
+		temp2 = new2;
 
 		new1 = new1 + before1;
 		before1 = temp1;
